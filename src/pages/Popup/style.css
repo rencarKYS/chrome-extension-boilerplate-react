@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.App {
+  width: 400px;
+  height: 500px;
+  padding: 10px;
+}
+
+.tab {
+  /* background: red; */
+}
+
+.tab ul {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  list-style: none;
+  border-bottom: 1px solid #cccccc;
+}
+
+.tab ul li {
+  /* background: yellow; */
+  cursor: pointer;
+  padding: 10px;
+  font-size: 15px;
+  background: #f1f1f1;
+}
+
+.tab ul li.on {
+  background: blue;
+  color: white;
+}
+
+.contents {
+  background: yellow;
+  margin-top: 10px;
+}

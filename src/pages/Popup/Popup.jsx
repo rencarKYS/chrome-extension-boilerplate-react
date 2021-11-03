@@ -1,25 +1,54 @@
-import React from 'react';
-import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
-import './Popup.css';
+import React, {useState} from 'react';
+import Rencar from '../Rencar';
+import './style.css';
 
 const Popup = () => {
+  // const test = () => {
+    // chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+    //   chrome.tabs.sendMessage(tabs[0].id, {action: "START"}, /* callback */);
+    // });
+  // }
+  const [currentTab, setCurrentTab] = useState('rencar');
+  const _addForm = () => {
+    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {action: "add"}, /* callback */);
+    });
+  }
+
+  const _tabClick = (e) => {
+    const selectTab = e.target.dataset.tab
+    setCurrentTab(selectTab)
+  }
+
+  const isSelectTab = (target) => {
+    if (currentTab === target) {
+      return 'on'
+    }
+    return ''
+  }
+
+  const contents = () => {
+    switch(currentTab) {
+      case 'rencar' : return <Rencar addForm={_addForm} />
+      case 'form' : return <div>form</div>
+      case 'admin' : return <div>admin</div>
+      default : break;
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Popup/Popup.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
+      {/* <button onClick={test}>click</button> */}
+      <div className="tab">
+        <ul onClick={_tabClick}>
+          <li className={isSelectTab('rencar')} data-tab="rencar">렌카</li>
+          <li className={isSelectTab('form')} data-tab="form">IMSForm</li>
+          <li className={isSelectTab('admin')} data-tab="admin">Admin</li>
+        </ul>
+      </div>
+      <div className="contents">
+        {contents()}
+      </div>
     </div>
   );
 };
