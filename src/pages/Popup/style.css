@@ -6,8 +6,8 @@
 }
 
 .App {
-  width: 400px;
-  height: 500px;
+  width: 300px;
+  height: 400px;
   padding: 10px;
 }
 
@@ -37,6 +37,5 @@
 }
 
 .contents {
-  background: yellow;
   margin-top: 10px;
 }
