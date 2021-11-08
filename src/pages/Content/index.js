@@ -51,11 +51,12 @@ chrome.runtime.onMessage.addListener(
       inputElements = [...document.querySelectorAll('[data-input]')];
       inputElements.map(input => {
         if (input.tagName === "P" && request.data[input.dataset.input]) {
+          console.log(request.data[input.dataset.input])
           input.innerText = request.data[input.dataset.input]
           input.parentNode.dispatchEvent(new Event('click', { bubbles: true }))
           const a = [...input.parentNode.children[2].querySelectorAll('li')]
           a.map(li => {
-            if (li.id === request.data[input.dataset.input]) {
+            if (li.innerText === request.data[input.dataset.input]) {
               li.dispatchEvent(new Event('click', { bubbles: true }))
             }
           })
