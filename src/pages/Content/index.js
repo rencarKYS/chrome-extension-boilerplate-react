@@ -32,7 +32,6 @@ chrome.runtime.onMessage.addListener(
       const inputData = inputElements.map(input => {
         const key = input.dataset.input
         const value = input.value
-        console.log(input.type)
         if (input.type === "radio" && input.checked) {
           return { [key]: value }
         }

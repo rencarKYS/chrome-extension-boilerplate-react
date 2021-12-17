@@ -20,8 +20,7 @@ const Popup = () => {
   const tabInit = () => {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {storeKey: "register"}, function(res) {
-        console.log(res)
-        setCurrentTab(res.platform)
+        setCurrentTab(res?.platform || 'rencar')
         setFormList(res.data)
       });
     });

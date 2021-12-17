@@ -29,7 +29,6 @@ export default function Rencar({
         data.map((list, i) => {
           return (
             <div key={i} className="card" onClick={(e) => {
-              console.log(e.target.tagName)
               if (e.target.tagName !== 'BUTTON') {
                 _handelClick(list)
               }
