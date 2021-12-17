@@ -27,9 +27,16 @@ chrome.runtime.onMessage.addListener(
     const data = JSON.parse(localStorage.getItem(request.storeKey)) || []
     if (request.action === "add") {
       console.log('%cadd', "color: pink")
+      inputElements = [...document.querySelectorAll('[data-input]')];
+      // inputElements = [...inputElements, inputElements.filter(input => input.type === "radio" && input.checked)]
       const inputData = inputElements.map(input => {
         const key = input.dataset.input
         const value = input.value
+        console.log(input.type)
+        if (input.type === "radio" && input.checked) {
+          return { [key]: value }
+        }
+        if (input.type === "radio" && !input.checked) return 
         if (input.innerText) {
           return { [key]: input.innerText }
         }
@@ -51,10 +58,10 @@ chrome.runtime.onMessage.addListener(
       inputElements = [...document.querySelectorAll('[data-input]')];
       inputElements.map(input => {
         if (input.tagName === "P" && request.data[input.dataset.input]) {
-          console.log(request.data[input.dataset.input])
+          // console.log(request.data[input.dataset.input])
           input.innerText = request.data[input.dataset.input]
           input.parentNode.dispatchEvent(new Event('click', { bubbles: true }))
-          const a = [...input.parentNode.children[2].querySelectorAll('li')]
+          const a = [...input.parentNode.querySelectorAll('li')]
           a.map(li => {
             if (li.innerText === request.data[input.dataset.input]) {
               li.dispatchEvent(new Event('click', { bubbles: true }))
@@ -62,8 +69,16 @@ chrome.runtime.onMessage.addListener(
           })
         }
         if (request.data[input.dataset.input]) {
-          input.setAttribute('value', request.data[input.dataset.input])
+          if (input.type === "radio") {
+            if (input.value === request.data[input.dataset.input]) {
+              input.checked = true
+              input.dispatchEvent(new Event("click", { bubbles: true }));
+              return
+            }
+          }
+          input.setAttribute('value', request.data[input.dataset.input || ''])
           input.dispatchEvent(new Event("change", { bubbles: true }));
+          input.dispatchEvent(new Event("blur", { bubbles: true }));
         }
       })
       return 
@@ -78,76 +93,3 @@ chrome.runtime.onMessage.addListener(
     })
   }
 )
-
-
-// chrome.runtime.onMessage.addListener(
-//   function(request, sender, sendResponse) {
-//     if (request.action === "add") {
-//       console.log(333)
-//       // sendResponse({platform: platform})
-//     }
-//   }
-// )
-// import { printLine } from './modules/print';
-// console.log('Content script works!');
-// console.log('Must reload extension for modifications to take effect.');
-
-// const idCheck = [...document.querySelectorAll('input')]
-// const customerData = [
-//   { ssn: "444-44-4444", name: "Bill", age: 35, email: "bill@company.com" },
-//   { ssn: "555-55-5555", name: "Donna", age: 32, email: "donna@home.org" }
-// ];
-
-// const DATABASE = "IMSForm"
-// const DB_VERSION = 1
-// const DB_STORE_NAME = "normal_register"
-// let db = null
-
-// const openDb = () => {
-//   // db 생성
-//   const request = window.indexedDB.open(DATABASE, DB_VERSION);
-//   // DB 생성 성공
-//   request.onsuccess = function(e) {
-//     db = this.result
-//   }
-//   // DB 생성실패
-//   request.onerror = function(e) {
-//     console.error(`indexDB : ${e.target.errorCode}`)
-//   }
-// }
-
-// openDb()
-
-// chrome.runtime.onMessage.addListener(
-//   function(request, sender, sendResponse) {
-//     if (request.action === "add") {
-      
-//       // console.log(idCheck)
-//       // const request = window.indexedDB.open("request");
-//       // request.onerror = function (e) {
-//       //   alert('error')
-//       // }
-//       // request.onsuccess = function (e) {
-//       //   console.log(request.result)
-//       // }
-//       // request.onupgradeneeded = function(event) {
-//       //   const db = event.target.result
-//       //   const objectStore = db.createObjectStore("customers", { keyPath: "ssn" });
-//       //   objectStore.createIndex("name", "name", { unique: false });
-//       //   objectStore.createIndex("email", "email", { unique: true });
-//       //   objectStore.transaction.oncomplete = function(event) {
-//       //     // Store values in the newly created objectStore.
-//       //     var customerObjectStore = db.transaction("customers", "readwrite").objectStore("customers");
-//       //     customerData.forEach(function(customer) {
-//       //       customerObjectStore.add(customer);
-//       //     });
-//       //     console.log(customerObjectStore)
-//       //   };
-//       // }
-//     }
-//   }
-// );
-
-
-// printLine("Using the 'printLine' function from the Print Module");
-

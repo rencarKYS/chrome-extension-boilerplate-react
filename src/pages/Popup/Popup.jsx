@@ -79,7 +79,7 @@ const Popup = () => {
             onChange={(e) => setFormTitle(e.target.value)} 
             placeholder="제목" 
             type="text"
-            value={formTitle}
+            value={formTitle || ''}
           />
           <button>추가</button>
         </form>

@@ -24,7 +24,7 @@ export default function Rencar({
   }
   
   return (
-    <div>
+    <div className="list_wrap">
       {
         data.map((list, i) => {
           return (

@@ -11,6 +11,11 @@
   border-radius: 5px;
 }
 
+.list_wrap {
+  overflow: auto;
+  height: 300px;
+}
+
 .card p {
   font-size: 14px;
 }
