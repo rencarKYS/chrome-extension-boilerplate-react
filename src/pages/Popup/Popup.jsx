@@ -21,7 +21,7 @@ const Popup = () => {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {storeKey: "register"}, function(res) {
         setCurrentTab(res?.platform || 'rencar')
-        setFormList(res.data)
+        setFormList(res?.data || [])
       });
     });
   }

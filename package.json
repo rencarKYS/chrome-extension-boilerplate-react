@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-boilerplate-react",
-  "version": "4.2.0",
-  "description": "A chrome extension boilerplate built with React 17, Webpack 5, and Webpack Dev Server 4",
+  "name": "auto-format-extension",
+  "version": "0.0.1",
+  "description": "아이엠에스모빌리티 그룹을 위한 생산성향상 도구입니다.",
   "license": "MIT",
   "repository": {
     "type": "git",
