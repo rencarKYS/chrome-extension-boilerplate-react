@@ -39,3 +39,26 @@
 .contents {
   margin-top: 10px;
 }
+
+.contents form {
+  display: flex;
+  align-items: center;
+}
+
+.contents input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.contents form button {
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  margin-left: 10px;
+  border-radius: 5px;
+  background: skyblue;
+  color: white;
+  border: none;
+}

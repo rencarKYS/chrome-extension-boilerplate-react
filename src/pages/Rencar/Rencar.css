@@ -11,9 +11,14 @@
   border-radius: 5px;
 }
 
+.card:hover {
+  background: #eeeeee;
+}
+
 .list_wrap {
   overflow: auto;
   height: 300px;
+  margin-top: 10px;
 }
 
 .card p {
@@ -27,4 +32,15 @@
   padding: 3px 8px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.card .title {
+  font-size: 18px;
+  color: #333333;
+  font-weight: bold;
+}
+
+.card .date {
+  font-size: 12px;
+  color: #999999;
 }

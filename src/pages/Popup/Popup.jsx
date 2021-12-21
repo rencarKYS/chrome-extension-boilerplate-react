@@ -3,11 +3,6 @@ import Rencar from '../Rencar';
 import './style.css';
 
 const Popup = () => {
-  // const test = () => {
-    // chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-    //   chrome.tabs.sendMessage(tabs[0].id, {action: "START"}, /* callback */);
-    // });
-  // }
   const [currentTab, setCurrentTab] = useState('rencar');
   const [formTitle, setFormTitle] = useState(null);
   const [formList, setFormList] = useState([]);

@@ -33,8 +33,8 @@ export default function Rencar({
                 _handelClick(list)
               }
             }}>
-              <p>{list.title}</p>
-              <p>{list.date}</p>
+              <p class="title">{list.title}</p>
+              <p class="date">{list.date}</p>
               <button className="delete" onClick={() => _handleDelete(list)}>삭제</button>
             </div>
           )
