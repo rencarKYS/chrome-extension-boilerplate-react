@@ -21,6 +21,13 @@
   margin-top: 10px;
 }
 
+.list_wrap .empty_text {
+  text-align: center;
+  color: #cccccc;
+  font-size: 18px;
+  line-height: 200px;
+}
+
 .card p {
   font-size: 14px;
 }

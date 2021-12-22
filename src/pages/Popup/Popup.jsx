@@ -69,7 +69,7 @@ const Popup = () => {
         <form onSubmit={_addForm}>
           <input 
             onChange={(e) => setFormTitle(e.target.value)} 
-            placeholder="제목" 
+            placeholder="포맷 이름을 정해주세요" 
             type="text"
             value={formTitle || ''}
           />
