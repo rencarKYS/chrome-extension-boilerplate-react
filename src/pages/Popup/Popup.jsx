@@ -52,7 +52,6 @@ const Popup = () => {
     switch(currentTab) {
       case 'rencar' : return <Rencar update={setFormList} data={formList} />
       case 'form' : return <Rencar update={setFormList} data={formList} />
-      case 'admin' : return <div>admin</div>
       default : break;
     }
   }
@@ -64,7 +63,6 @@ const Popup = () => {
         <ul onClick={_tabClick}>
           <li className={isSelectTab('rencar')} data-tab="rencar">렌카</li>
           <li className={isSelectTab('form')} data-tab="form">IMSForm</li>
-          <li className={isSelectTab('admin')} data-tab="admin">Admin</li>
         </ul>
       </div>
       <div className="contents">
