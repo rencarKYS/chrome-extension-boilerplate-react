@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 3,
   "name": "IMS Mobility format",
   "description": "아이엠에스모빌리티의 입력 양식 포맷의 테스트를 돕는 확장프로그램",
