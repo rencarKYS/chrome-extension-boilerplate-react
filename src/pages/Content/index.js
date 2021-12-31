@@ -153,6 +153,7 @@ chrome.runtime.onMessage.addListener(
       } else {
         cancelApi(requestResult[1].id)
       }
+      return 
     }
     sendResponse({
       platform: platform,

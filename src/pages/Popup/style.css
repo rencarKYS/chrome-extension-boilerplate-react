@@ -62,3 +62,24 @@
   color: white;
   border: none;
 }
+
+.agree_btn {
+  border: none;
+  background: #292929;
+  color: white;
+  padding: 5px 10px;
+  display: block;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.agree_btn:nth-child(2) {
+  background: green;
+}
+
+.request_result {
+  font-size: 15px;
+  font-weight: bold;
+}

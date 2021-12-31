@@ -65,17 +65,15 @@ const Popup = () => {
 
   const kakaoSuggestCancelBtn = (option) => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-      chrome.tabs.sendMessage(tabs[0].id, {action: "applyCancel", storeKey: "kakaoCancel", option: option}, function(res) {
-        // console.log(res)
-      });
+      chrome.tabs.sendMessage(tabs[0].id, {action: "applyCancel", storeKey: "kakaoCancel", option: option});
     });
   }
 
   const renderAgree = () => {
     return (
       <>
-        <button onClick={() => kakaoSuggestCancelBtn('all')}>전체 동의 취소</button>
-        <button onClick={() => kakaoSuggestCancelBtn('one')}>신규 정책 동의 취소</button>
+        <button className="agree_btn" onClick={() => kakaoSuggestCancelBtn('all')}>전체 동의 취소</button>
+        <button className="agree_btn" onClick={() => kakaoSuggestCancelBtn('one')}>신규 정책 동의 취소</button>
       </>
     )
   }
